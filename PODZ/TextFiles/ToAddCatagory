@@ -1,0 +1,5 @@
+
+Step 0: Make sure habit is "After -ing". Ex: "After drinking water," not "after drink water" nor "after stay hyrated"
+Step 1: add to catagory array and subCatagoryDictionary in ChooseHabitView in NewPodView.swift
+Step 2: add new reminder and log phrases to phraseExamples in Firebase Firestore (make sure all phrases are under 50 characters)
+step 3: in firebase functions, in pendingApplicationsSchedule, filter pod apps by new catagory and call formPod on it. Don't forget to deploy.

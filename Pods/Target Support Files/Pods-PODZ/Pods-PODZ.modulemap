@@ -1,0 +1,6 @@
+framework module Pods_PODZ {
+  umbrella header "Pods-PODZ-umbrella.h"
+
+  export *
+  module * { export * }
+}

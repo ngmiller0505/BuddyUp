@@ -1,0 +1,29 @@
+App is finished. What else needs to be done before launch?
+
+
+1. Put on testflight
+    0. Watch videos on putting things on testflight and sppstore to and add extra points to this list
+        - if you change your version number testflight has to reaprrove your app. If you change your build number you can change
+        - create app icons easily on skatch
+        - archive app then set up external testers
+    2. Questions about purchases
+        1. will purchases transfer? CHECK
+            1. if yes, include super purchase ($1 for a year for transfer purchases) CHECK WITH OFFER CODES
+            2. if no, give everyone free access on the beta
+    3. Determine beta participant list. ~30 people + who ever else wants. Inform them. teach them how to download testflight. Write good emil
+    4. Mixpanel?? consumers will show you what they want, then tell you why they want it
+    
+
+2. Make coding changes
+3. Put on AppStore
+    -1. Terms and Condition
+        1. questions about age restriction. tinder is 17+. I can probably get away with something similar. Maybe I have to verify 18+ in app?
+        2. Terms and Conditions is presented in a link. Do i need a website? ()
+    0. https://decode.agency/app-store-rejection/
+    1. Create AppStore preview images + description
+        1. App Screenshots
+    2. Submit to review
+
+
+
+
