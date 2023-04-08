@@ -59,7 +59,7 @@ struct PodChatView: View {
         print("\n\n")
         let additionalTextFieldHeight = textFieldHeight - initialTextFieldHeight
         
-        let grayContainerHeightWithoutKeyboard = 75 + initialTextFieldHeight + additionalTextFieldHeight
+//        let grayContainerHeightWithoutKeyboard = 75 + initialTextFieldHeight + additionalTextFieldHeight
         
         let keyboardHeight =  CGFloat(290 - (differentDevice == .old ? 80 : 0)) //textFieldHeight
        

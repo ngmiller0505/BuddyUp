@@ -393,7 +393,7 @@ function checkIfFriendNeedsReminderGroup(listOfPods: FirebaseFirestore.DocumentD
             return
         }
         let dateCreated = pod.dateCreated.toDate() as Date
-        let now = admin.firestore.Timestamp.now().toDate() as Date
+        let now = admin.firestore.Timestamp.now().toDate()
         let millisecondDifference = now.valueOf() - dateCreated.valueOf()
         let twentyFourHours = 3600000 * 24
         let fiveMinutes = 3600000 / 12
@@ -1478,6 +1478,8 @@ async function setPodInvitationForFriend(recievedInviteUserID: string, inviterUs
 
 }
 
+
+//Takes User and FriendApplication and podID and writes new pod to Firestore
 function createFriendPod(creatorUser: FirebaseFirestore.DocumentData, creatorApp: FirebaseFirestore.DocumentData, podID: string): FirebaseFirestore.DocumentData {
 
     let catagoryOrSubcatagory = ""
@@ -1524,7 +1526,7 @@ function createFriendPod(creatorUser: FirebaseFirestore.DocumentData, creatorApp
         "memberAliasesAndHabitDays" : {a : 0},
         "memberAliasesAndHabit" : {a : catagoryOrSubcatagory}, 
         "memberAliasesAndSomethingNew" : {a : true},
-        "dateCreated" : creatorApp.dateCreated
+        "dateCreated" : creatorApp.myTimestamp
     }
 
     admin.firestore().collection("pods").doc(podID).set(newPod)

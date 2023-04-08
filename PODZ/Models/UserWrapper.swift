@@ -156,7 +156,7 @@ class UserWrapper: ObservableObject {
                                 
                                 self.getPhraseExamples()
                                 self.getFAQs { (qAndA) in
-                                    faqs = qAndA
+                                    self.faqs = qAndA
                                 }
 
                                 triedToLoadUser = true
@@ -185,9 +185,9 @@ class UserWrapper: ObservableObject {
                                 print("_________________________________")
                                 print("-")
 
-                            userDataListener(userID: user.uid) { userFromListener in
+                                userDataListener(userID: user.uid) {  userFromListener in
                                 
-                                    currentUser = userFromListener
+                                self.currentUser = userFromListener
                                 
                                 print("INITIALIZING purchasesWRAPPER")
                                 self.getPackages() { packagesResult in
@@ -202,12 +202,12 @@ class UserWrapper: ObservableObject {
                                 }
 
                                 
-                                    self.setNotificationTokenDict(tokenDict: tokenDict)
-                                    triedToLoadUser = true
+                                    self.setNotificationTokenDict(tokenDict: self.tokenDict)
+                                    self.triedToLoadUser = true
                                     
                                 
                                     self.getPendingPods() {
-                                        triedToLoadPendingPods = true
+                                        self.triedToLoadPendingPods = true
                                     }
                                 
                                 
@@ -220,7 +220,7 @@ class UserWrapper: ObservableObject {
                                         }
                                     }
                                     self.userPods = self.userPods.filter { (podWrapper) -> Bool in
-                                        triedToLoadUserPods = true
+                                        self.triedToLoadUserPods = true
                                         print("LOADED USER PODS")
                                         return self.currentUser!.podsApartOfID.contains(podWrapper.podID)
                                     }
@@ -240,7 +240,7 @@ class UserWrapper: ObservableObject {
                                     self.getPhraseExamples()
                                         
                                     self.getFAQs { (qAndA) in
-                                        faqs = qAndA
+                                        self.faqs = qAndA
                                         
                                     }
                                     self.getFinishedPods()

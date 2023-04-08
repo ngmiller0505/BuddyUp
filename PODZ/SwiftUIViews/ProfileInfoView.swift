@@ -182,7 +182,7 @@ struct ProfileInfoView: View {
                                     
                                     VStack(alignment: .center) {
                                         Text("You have no friends on BuddyUp.")
-                                        Text("You can search for friends by email. or by contacts.")
+                                        Text("You can search for friends by email.")
                                         Text("Or find them in your phone contacts.")
                                     }
                                     .padding(5)

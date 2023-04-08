@@ -53,8 +53,8 @@ struct PodListView: View {
                                             }
                                             .frame(width: UIScreen.main.bounds.width - 50, height: 60, alignment: .center)
                                             .background(Color.init("lightPurple"))
-                                            .shadow(color: Color.init("lightPurple"), radius: animateNewPodButton ? 10 : 0.0)
-                                            .opacity(animateNewPodButton ? 0.5 : 1.0)
+//                                            .shadow(color: Color.init("lightPurple"), radius: animateNewPodButton ? 10 : 0.0)
+//                                            .opacity(animateNewPodButton ? 0.5 : 1.0)
                                             .clipShape(RoundedRectangle(cornerRadius: 25))
                                         }
                                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))

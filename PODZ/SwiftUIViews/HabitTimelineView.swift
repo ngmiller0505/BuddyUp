@@ -98,7 +98,7 @@ struct PickTimesView : View {
                 Button(action: {
 
 
-                    if step == 1 {
+                    if step == 0 {
                         chosenHabitType = false
                     } else {
                         step = step - 1
@@ -127,7 +127,7 @@ struct PickTimesView : View {
                 )
 
             Button(action: {
-                if step == 3 {
+                if step == 2 {
                     chosenTimes = true
                 }
                 else {
@@ -189,10 +189,18 @@ struct DurationPicker: UIViewRepresentable {
     }
 }
 
-
+struct Dot : Identifiable, Hashable {
+    var id: Int
+    var dotType: String
+    
+    init(dotType : String , id: Int) {
+        self.id = id
+        self.dotType = dotType
+    }
+}
 
 class TimelineHelper: ObservableObject {
-    @Published var dotType : [String]
+    @Published var dots : [Dot]
     
     @Published var reminderTime: Date
 //    {
@@ -223,30 +231,48 @@ class TimelineHelper: ObservableObject {
     
     init(viewWidth: CGFloat) {
         self.viewWidth = viewWidth
-        self.numberOfDots = 15
         
-//        self.dotType = []
-        var middle = Array(repeating: "None", count: numberOfDots - 1)
-        var startArray = ["Start"]
-        var endArray = ["End"]
-        self.dotType = startArray + middle + endArray
-//        self.dotType = ["startHabitNeeded", "Space", "Start", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "End", "Space", "endHabitNeeded"]
-
         self.habitLength = 3600
         self.reminderTime = Date()
         self.habitTime = Date()
+        
+        self.numberOfDots = 15
+        self.dots = []
+        var i = 0
+        while i != numberOfDots {
+            if i  == 0 {
+                dots.append(Dot(dotType: "Start", id: i))
+
+            } else if i == numberOfDots - 1 {
+                dots.append(Dot(dotType: "End", id: i))
+
+            } else {
+                dots.append(Dot(dotType: "", id: i))
+            }
+             i = i + 1
+        }
+//        let middle = Array(repeating: "None", count: numberOfDots - 1)
+//        let startArray = ["Start"]
+//        let endArray = ["End"]
+//        self.dotType = ["startHabitNeeded", "Space", "Start", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "None", "End", "Space", "endHabitNeeded"]
+
+
         self.resetTimeline()
         
         
     }
     
     func timesChanged() {
+        print("-------IN TIMES CHANGED----------")
+        
+        
+        
         
         updateBounds() {
             
             
             resetTimeline()
-            dotType[convertDateToIndex(date: habitTime)] += " HabitStart"
+            dots[convertDateToIndex(date: habitTime)].dotType += " HabitStart"
             
             let numberOfDotsInDuration = amountOfDotsInDuration(duration: habitLength)
             var habitIndex = convertDateToIndex(date: habitTime)
@@ -257,31 +283,36 @@ class TimelineHelper: ObservableObject {
                 
                 if habitIndex < numberOfDots {
                     currentIndex = habitIndex
-                    dotType[habitIndex] += " Habit"
+                    dots[habitIndex].dotType += " Habit"
                 } else {
                     habitIndex = 0
                     currentIndex = 0
-                    dotType[habitIndex] += " Habit"
+                    dots[habitIndex].dotType += " Habit"
                 }
             }
-            if currentIndex < numberOfDots {
-                dotType[currentIndex + 1] = " HabitEnd"
+            if currentIndex < numberOfDots - 1 {
+                dots[currentIndex + 1].dotType += " HabitEnd"
             } else if currentIndex == numberOfDots {
-                dotType[currentIndex] += " HabitEnd"
+                dots[currentIndex].dotType += " HabitEnd"
             }
     //
             let calendar = Calendar.current
             let endHabit = calendar.date(byAdding: .second, value: Int(habitLength), to: habitTime)!
-            dotType[convertDateToIndex(date: endHabit)] += " Group"
-            
-            if convertDateToIndex(date: endHabit) == convertDateToIndex(date: reminderTime) && convertDateToIndex(date: endHabit) != 0 {
-                
-                dotType[convertDateToIndex(date: endHabit) - 1] += " Reminder"
-
+            if convertDateToIndex(date: endHabit) == self.numberOfDots {
+                dots[convertDateToIndex(date: endHabit) - 1].dotType += " Group"
             } else {
-                dotType[convertDateToIndex(date: endHabit)] += "Reminder"
-
+                dots[convertDateToIndex(date: endHabit)].dotType += " Group"
             }
+            
+            dots[convertDateToIndex(date: reminderTime)].dotType += " Reminder"
+//            if convertDateToIndex(date: reminderTime) == convertDateToIndex(date: reminderTime) && convertDateToIndex(date: reminderTime) != 0 {
+//
+//                dots[convertDateToIndex(date: reminderTime) - 1].dotType += " Reminder"
+//
+//            } else {
+//                dots[convertDateToIndex(date: reminderTime)].dotType += " Reminder"
+//
+//            }
             
 
 
@@ -291,13 +322,19 @@ class TimelineHelper: ObservableObject {
 
         
     }
-    
+    func printDots() {
+                    var printableDots : [String] = []
+        for dot in dots {
+            printableDots.append(dot.dotType)
+        }
+        print(printableDots)
+    }
     func printTimelineHelper() {
         print("")
         
         print("numberOfDots: ", self.numberOfDots, "  SegLength: ", segLength())
 
-        print("dotType array: ", dotType)
+        printDots()
         
         print("reminderTime: ", reminderTime)
         print("reminderTime Index: ", convertDateToIndex(date: reminderTime))
@@ -330,34 +367,34 @@ class TimelineHelper: ObservableObject {
     
     func convertDateToIndex(date: Date) -> Int {
         
-        print("")
+//        print("")
         
         let timeAsHHMM: Double =  Double(Calendar.current.component(.hour, from: date) * 100 + Calendar.current.component(.minute, from: date))
         
-        print("convertDateToIndex for timeAsHHMM: ", timeAsHHMM)
+//        print("convertDateToIndex for timeAsHHMM: ", timeAsHHMM)
         
         let minusStartingHour = timeAsHHMM - Double(startHabitNeeded * 100)
         
-        print("minusStartingHour: ", minusStartingHour)
+//        print("minusStartingHour: ", minusStartingHour)
 
         
         let fullTimeline = Double(self.endHabitNeeded - self.startHabitNeeded)
         
 //        print("fullTimeline: ", fullTimeline)
-        print("startHabit: ", startHabitNeeded, "endHabit: ", endHabitNeeded)
+//        print("startHabit: ", startHabitNeeded, "endHabit: ", endHabitNeeded)
         
         let fullTimelineConverted: Double = fullTimeline * 100
         
 //        print("fullTimelineConverted: ", fullTimelineConverted)
         
-        let percentageIndexOnTimeline: Double = minusStartingHour * fullTimelineConverted / 2400
+//        let percentageIndexOnTimeline: Double = minusStartingHour * fullTimelineConverted / 2400
+//
+//        print("percentageIndexOnTimeline = \(String(minusStartingHour)) * \(String(fullTimelineConverted)) / 2400 = ", percentageIndexOnTimeline)
         
-        print("percentageIndexOnTimeline: ", percentageIndexOnTimeline)
+        let convertedToIndex: Int = Int(minusStartingHour * Double(self.numberOfDots)) / Int(fullTimelineConverted)
         
-        let convertedToIndex: Int = Int(percentageIndexOnTimeline * Double(self.numberOfDots)) / 100
-        
-        print("convertedToIndex: ", convertedToIndex)
-        print("")
+//        print("convertedToIndex =  \(String(Int(minusStartingHour))) * \(String(Double(self.numberOfDots))) / \(String(Int(fullTimelineConverted))) = ", convertedToIndex)
+//        print("")
 
         return convertedToIndex
     }
@@ -391,10 +428,20 @@ class TimelineHelper: ObservableObject {
 
     }
     func resetTimeline() {
-        var middle = Array(repeating: "", count: numberOfDots - 2)
-        var startArray = ["Start"]
-        var endArray = ["End"]
-        self.dotType = startArray + middle + endArray
+        self.dots = []
+        var i = 0
+        while i != numberOfDots {
+            if i  == 0 {
+                dots.append(Dot(dotType: "Start", id: i))
+
+            } else if i == numberOfDots - 1 {
+                dots.append(Dot(dotType: "End", id: i))
+
+            } else {
+                dots.append(Dot(dotType: "", id: i))
+            }
+            i = i + 1
+        }
 //        self.dotType = []
 //        for i in 0..<100 {
 //            if i == 0 {
@@ -466,29 +513,25 @@ struct ThirdTimlineView : View {
     @State var endHabitNeeded = 23
     @Binding var step: Int
     
-//    func twoThings(dot: String) -> [String] {
-//       let arrayOfSubstrings =  dot.components(separatedBy: " ")
-//        var arrayOfStrings: [String] = []
-//        arrayOfSubstrings.map { subS in
-//            arrayOfStrings.append(String(subS))
-//        }
-//        return arrayOfStrings
-//
-//
-//    }
+    func twoThings(dot: String) -> [String] {
+        return dot.components(separatedBy: " ")
+    }
     
     var body : some View {
         
         HStack(spacing: 0) {
-            ForEach(timelineHelper.dotType, id: \.self) {
-                dot in
-
+            ForEach($timelineHelper.dots) {
+                $dot in
+                
+                
+                if dot.dotType == "" {
+                    
+                    Color.black.frame(maxWidth: timelineHelper.segLength(), maxHeight: 3, alignment: .center)
+                } else {
                         
-                    ForEach(twoThings(dot: dot), id: \.self) { word in
-                        VStack {
-                            if word.count == 1 && word[0] == "" {
-                                Color.black.frame(maxWidth: timelineHelper.segLength(), maxHeight: 3, alignment: .center)
-                            } else {
+                    
+                    VStack(spacing: 0) {
+                            ForEach(twoThings(dot: dot.dotType), id: \.self) { word in
                             
                             if word == "Start" {
                                 
@@ -528,33 +571,33 @@ struct ThirdTimlineView : View {
                                     
                                 }
                             }
-//                            else if word == "Reminder" {
-//                                Circle()
-//                                    .fill(Color.green.opacity(1))
-//                                    .frame(width: timelineHelper.segLength(), height: timelineHelper.segLength())
-//                            }
-//                            else if word == "Habit" {
-//                                Color.gray.frame(maxHeight: timelineHelper.segLength(), alignment: .center)
-//                            }
+                            else if word == "Reminder" {
+                                Circle()
+                                    .fill(Color.green.opacity(1))
+                                    .frame(width: timelineHelper.segLength(), height: timelineHelper.segLength())
+                            }
+                            else if word == "Habit" {
+                                Color.gray.frame(maxWidth: timelineHelper.segLength(), alignment: .center)
+                            }
 ////                            else if word == "Space" {
 ////                                Circle()
 ////                                    .fill(Color.white.opacity(1))
 ////                                    .frame(width: timelineHelper.segLength(), height: timelineHelper.segLength())
 ////                            }
-//                            else if word == "HabitStart" {
-//
-//                                Color.gray.frame(maxHeight: timelineHelper.segLength(), alignment: .center)
-//                                    .cornerRadius(100, corners: [.topLeft, .bottomLeft])
-//                            }
-//                            else if word == "HabitEnd" {
-//                                Color.gray.frame(maxHeight: timelineHelper.segLength(), alignment: .center)
-//                                    .cornerRadius(100, corners: [.topRight, .bottomRight])
-//                            }
-//                            else if word == "Group" {
-//                                Circle()
-//                                    .fill(Color.purple.opacity(1))
-//                                    .frame(width: timelineHelper.segLength(), height: timelineHelper.segLength())
-//                            }
+                            else if word == "HabitStart" {
+
+                                Color.gray.frame(maxHeight: timelineHelper.segLength(), alignment: .center)
+                                    .cornerRadius(100, corners: [.topLeft, .bottomLeft])
+                            }
+                            else if word == "HabitEnd" {
+                                Color.gray.frame(maxHeight: timelineHelper.segLength(), alignment: .center)
+                                    .cornerRadius(100, corners: [.topRight, .bottomRight])
+                            }
+                            else if word == "Group" {
+                                Circle()
+                                    .fill(Color.purple.opacity(1))
+                                    .frame(width: timelineHelper.segLength(), height: timelineHelper.segLength())
+                            }
                         }
         
                     }.frame(width: timelineHelper.segLength(), height: timelineHelper.segLength(), alignment: .center)

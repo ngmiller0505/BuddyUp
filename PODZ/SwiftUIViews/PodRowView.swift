@@ -83,15 +83,15 @@ struct PodRow: View {
                             }
 
                             Image(systemName: "chevron.right").font(.largeTitle).foregroundColor(.white)
-                                .scaleEffect(animateArrow ? 1.8 : 1.4)
-                                .onChange(of: podWrapper.isThereSomethingNewForUser(UID: currentUserWrapper.currentUser!.ID), perform: { value in
-                                    print("")
-                                    print("IN POD ROW somethingNew CHANGED = ", value)
-                                    animateArrow = podWrapper.isThereSomethingNewForUser(UID: currentUserWrapper.currentUser!.ID)
-                                    print("")
-                                    })
-                                .animation(animateArrow ? Animation.easeInOut(duration: 0.3).repeatForever(autoreverses: true) : .default)
-                                .padding(15)
+//                                .scaleEffect(animateArrow ? 1.8 : 1.4)
+//                                .onChange(of: podWrapper.isThereSomethingNewForUser(UID: currentUserWrapper.currentUser!.ID), perform: { value in
+//                                    print("")
+//                                    print("IN POD ROW somethingNew CHANGED = ", value)
+//                                    animateArrow = podWrapper.isThereSomethingNewForUser(UID: currentUserWrapper.currentUser!.ID)
+//                                    print("")
+//                                    })
+//                                .animation(animateArrow ? Animation.easeInOut(duration: 0.3).repeatForever(autoreverses: true) : .default)
+                                .padding()
                         }
                 }
                 .cornerRadius(35, corners: [.topRight, .bottomRight])

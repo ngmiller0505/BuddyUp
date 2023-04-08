@@ -57,11 +57,10 @@
 		26F39EC42669629F0066C4C5 /* FinishedPod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F39EC32669629F0066C4C5 /* FinishedPod.swift */; };
 		26F39EC6266E51780066C4C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F39EC5266E51780066C4C5 /* StoreKit.framework */; };
 		26F8D56325A6B5A10033258E /* EmailPasswordResetPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8D56225A6B5A10033258E /* EmailPasswordResetPage.swift */; };
-		E7CD3B47C5125D435A44813F /* Pods_PODZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5A025C657E324C5CF954089 /* Pods_PODZ.framework */; };
+		35241BD210E185B43BB2A76C /* Pods_PODZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BCE76432284861927C1B70 /* Pods_PODZ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1161358D8CDA0551FAE1BDED /* Pods-PODZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PODZ.debug.xcconfig"; path = "Target Support Files/Pods-PODZ/Pods-PODZ.debug.xcconfig"; sourceTree = "<group>"; };
 		261646B42610151F008C4F9A /* PhraseExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseExample.swift; sourceTree = "<group>"; };
 		2620A1E82523F7C500DF92FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2620A1E92523F7C500DF92FA /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,8 +115,9 @@
 		26F39EC32669629F0066C4C5 /* FinishedPod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedPod.swift; sourceTree = "<group>"; };
 		26F39EC5266E51780066C4C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26F8D56225A6B5A10033258E /* EmailPasswordResetPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPasswordResetPage.swift; sourceTree = "<group>"; };
-		5C21A0813ECBBD9318CBA3AD /* Pods-PODZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PODZ.release.xcconfig"; path = "Target Support Files/Pods-PODZ/Pods-PODZ.release.xcconfig"; sourceTree = "<group>"; };
-		D5A025C657E324C5CF954089 /* Pods_PODZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PODZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C499047135F860553D37DA5D /* Pods-PODZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PODZ.debug.xcconfig"; path = "Target Support Files/Pods-PODZ/Pods-PODZ.debug.xcconfig"; sourceTree = "<group>"; };
+		C9BCE76432284861927C1B70 /* Pods_PODZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PODZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDA452F40C9BE2DD2A41C9E /* Pods-PODZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PODZ.release.xcconfig"; path = "Target Support Files/Pods-PODZ/Pods-PODZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26F39EC6266E51780066C4C5 /* StoreKit.framework in Frameworks */,
-				E7CD3B47C5125D435A44813F /* Pods_PODZ.framework in Frameworks */,
+				35241BD210E185B43BB2A76C /* Pods_PODZ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,8 +229,8 @@
 		937B139A06FB93A0AC771AA9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1161358D8CDA0551FAE1BDED /* Pods-PODZ.debug.xcconfig */,
-				5C21A0813ECBBD9318CBA3AD /* Pods-PODZ.release.xcconfig */,
+				C499047135F860553D37DA5D /* Pods-PODZ.debug.xcconfig */,
+				FDDA452F40C9BE2DD2A41C9E /* Pods-PODZ.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				26F39EC5266E51780066C4C5 /* StoreKit.framework */,
-				D5A025C657E324C5CF954089 /* Pods_PODZ.framework */,
+				C9BCE76432284861927C1B70 /* Pods_PODZ.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,11 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26E44C8524982F2800155F8B /* Build configuration list for PBXNativeTarget "PODZ" */;
 			buildPhases = (
-				15E74579B2B4B94FB5105909 /* [CP] Check Pods Manifest.lock */,
+				FEF3D49AAE20081384305969 /* [CP] Check Pods Manifest.lock */,
 				26E44C6D24982F2100155F8B /* Sources */,
 				26E44C6E24982F2100155F8B /* Frameworks */,
 				26E44C6F24982F2100155F8B /* Resources */,
-				0F09EFA7A994040CC0A1BD8A /* [CP] Embed Pods Frameworks */,
+				6720865CEFA62F9E71B261EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +322,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F09EFA7A994040CC0A1BD8A /* [CP] Embed Pods Frameworks */ = {
+		6720865CEFA62F9E71B261EB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,7 +339,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PODZ/Pods-PODZ-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		15E74579B2B4B94FB5105909 /* [CP] Check Pods Manifest.lock */ = {
+		FEF3D49AAE20081384305969 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -448,6 +448,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -509,6 +510,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -529,16 +531,17 @@
 		};
 		26E44C8624982F2800155F8B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1161358D8CDA0551FAE1BDED /* Pods-PODZ.debug.xcconfig */;
+			baseConfigurationReference = C499047135F860553D37DA5D /* Pods-PODZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_ENTITLEMENTS = PODZ/PODZ.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PODZ/Preview Content\"";
 				DEVELOPMENT_TEAM = 8T4YDHNG52;
 				ENABLE_PREVIEWS = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = PODZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -554,16 +557,18 @@
 		};
 		26E44C8724982F2800155F8B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C21A0813ECBBD9318CBA3AD /* Pods-PODZ.release.xcconfig */;
+			baseConfigurationReference = FDDA452F40C9BE2DD2A41C9E /* Pods-PODZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_ENTITLEMENTS = PODZ/PODZ.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PODZ/Preview Content\"";
 				DEVELOPMENT_TEAM = 8T4YDHNG52;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = PODZ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (

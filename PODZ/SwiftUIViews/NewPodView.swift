@@ -149,51 +149,51 @@ struct NewPodView: View {
                 }.ignoresSafeArea(.keyboard)
 
                 ZStack {
-                    PickTimesView(chosenHabitType: $timelineEnter, chosenTimes: $timelineExit)
-//                    if isUnaddressedInvite {
-//                        InviteScreen(showActionSheet: $showActionSheet, isUnadressedInvite: $isUnaddressedInvite, pendingPodFromFriend: pendingPodFriendInvite!, podToJoin: $podToJoin)
-//                    }
-//                    else
-//                    if (currentUserWrapper.currentUser!.podsApartOfID.count +  currentUserWrapper.currentUser!.finishedPodIDs.count >= 1 && !currentUserWrapper.isPremium) && !bypassPaywallClicked {
-//                        FreeTrialLimitReachedView(bypassPaywallClicked: $bypassPaywallClicked)
-//                    }
-//                    else if !(seenPodTutorial || currentUserWrapper.currentUser!.donePodTutorial) {
-//                        PodTutorial2(seenPodTutorial: $seenPodTutorial)
-//                    }
-//                    else if !communityOrFriendSelected
-//                    {
-//                        communityOrFriendSelection(communityOrFriendSelected: $communityOrFriendSelected, communityPodSelected: $communityPodSelected, friendIDAndBool: $friendIDsAndBool, activeSheet: $activeSheet)
-//                    }
-//                    else if (communityPodSelected && !seenFaqs) {
-//                        FAQView(communityOrFriendSelected: $communityOrFriendSelected, seenFaqs: $seenFaqs)
-//                    }
-//                    else if (!communityPodSelected && !chosenFriends) {
-//                        FriendSelectView(communityOrFriendSelected: $communityOrFriendSelected, friendIDsAndBool: friendIDsAndBool, chosenFriends: $chosenFriends, activeSheet: $activeSheet)
-//                    }
-//                    else if ((chosenFriends || seenFaqs) && !chosenHabit) {
-//                        ChooseHabitView(chosenFriends: $chosenFriends, seenFaqs: $seenFaqs, chosenHabit: $chosenHabit, pendingPodFromFriend : pendingPodFriendInvite, podToJoin: podToJoin)
-//                    }
-//                    else
-//                    if (chosenHabit && !chosenDayAndTime) {
-//                        ChooseDayAndTimeView(chosenHabit: $chosenHabit,
-//                                             chosenDayAndTime: $chosenDayAndTime,
-//                                             duration: String(currentUserWrapper.currentPodApplication.commitmentLength!),
-//                                             currentDate: $currentDate,
-//                                             communityPodSelected : $communityPodSelected,
-//                                             daysArray: $daysArray,
-//                                             pendingPodInviteFromFriend: pendingPodFriendInvite)
-//                    }
-//                    else if (chosenDayAndTime && !chosenLogPhrase) {
-//                        LogPhraseView(chosenDayAndTime: $chosenDayAndTime, logPhrase: $logPhrase, chosenLogPhrase: $chosenLogPhrase)
-//
-//                    }
-//                    else if (chosenLogPhrase && !chosenReminderPhrase) {
-//                        ReminderPhraseView(chosenLogPhrase: $chosenLogPhrase, reminderPhrase: $reminderPhrase, chosenReminderPhrase: $chosenReminderPhrase)
-//
-//                    }
-//                    else {
-//                        ReviewPodApplicationView(communityPodSelected: $communityPodSelected, friendIDsAndBool: $friendIDsAndBool, showCommitmentSheet: $showCommitmentSheet, communityOrFriendSelected: $communityOrFriendSelected, chosenHabit: $chosenHabit, chosenReminderPhrase: $chosenReminderPhrase, chosenLogPhrase: $chosenLogPhrase, chosenFriends: $chosenFriends, chosenDayAndTime: $chosenDayAndTime, currentDate: $currentDate, appeared: $appeared)
-//                    }
+//                    PickTimesView(chosenHabitType: $timelineEnter, chosenTimes: $timelineExit)
+                    if isUnaddressedInvite {
+                        InviteScreen(showActionSheet: $showActionSheet, isUnadressedInvite: $isUnaddressedInvite, pendingPodFromFriend: pendingPodFriendInvite!, podToJoin: $podToJoin)
+                    }
+                    else
+                    if (currentUserWrapper.currentUser!.podsApartOfID.count +  currentUserWrapper.currentUser!.finishedPodIDs.count >= 1 && !currentUserWrapper.isPremium) && !bypassPaywallClicked {
+                        FreeTrialLimitReachedView(bypassPaywallClicked: $bypassPaywallClicked)
+                    }
+                    else if !(seenPodTutorial || currentUserWrapper.currentUser!.donePodTutorial) {
+                        PodTutorial2(seenPodTutorial: $seenPodTutorial)
+                    }
+                    else if !communityOrFriendSelected
+                    {
+                        communityOrFriendSelection(communityOrFriendSelected: $communityOrFriendSelected, communityPodSelected: $communityPodSelected, friendIDAndBool: $friendIDsAndBool, activeSheet: $activeSheet)
+                    }
+                    else if (communityPodSelected && !seenFaqs) {
+                        FAQView(communityOrFriendSelected: $communityOrFriendSelected, seenFaqs: $seenFaqs)
+                    }
+                    else if (!communityPodSelected && !chosenFriends) {
+                        FriendSelectView(communityOrFriendSelected: $communityOrFriendSelected, friendIDsAndBool: friendIDsAndBool, chosenFriends: $chosenFriends, activeSheet: $activeSheet)
+                    }
+                    else if ((chosenFriends || seenFaqs) && !chosenHabit) {
+                        ChooseHabitView(chosenFriends: $chosenFriends, seenFaqs: $seenFaqs, chosenHabit: $chosenHabit, pendingPodFromFriend : pendingPodFriendInvite, podToJoin: podToJoin)
+                    }
+                    else
+                    if (chosenHabit && !chosenDayAndTime) {
+                        ChooseDayAndTimeView(chosenHabit: $chosenHabit,
+                                             chosenDayAndTime: $chosenDayAndTime,
+                                             duration: String(currentUserWrapper.currentPodApplication.commitmentLength!),
+                                             currentDate: $currentDate,
+                                             communityPodSelected : $communityPodSelected,
+                                             daysArray: $daysArray,
+                                             pendingPodInviteFromFriend: pendingPodFriendInvite)
+                    }
+                    else if (chosenDayAndTime && !chosenLogPhrase) {
+                        LogPhraseView(chosenDayAndTime: $chosenDayAndTime, logPhrase: $logPhrase, chosenLogPhrase: $chosenLogPhrase)
+
+                    }
+                    else if (chosenLogPhrase && !chosenReminderPhrase) {
+                        ReminderPhraseView(chosenLogPhrase: $chosenLogPhrase, reminderPhrase: $reminderPhrase, chosenReminderPhrase: $chosenReminderPhrase)
+
+                    }
+                    else {
+                        ReviewPodApplicationView(communityPodSelected: $communityPodSelected, friendIDsAndBool: $friendIDsAndBool, showCommitmentSheet: $showCommitmentSheet, communityOrFriendSelected: $communityOrFriendSelected, chosenHabit: $chosenHabit, chosenReminderPhrase: $chosenReminderPhrase, chosenLogPhrase: $chosenLogPhrase, chosenFriends: $chosenFriends, chosenDayAndTime: $chosenDayAndTime, currentDate: $currentDate, appeared: $appeared)
+                    }
                 }
             }
             .onAppear {
@@ -409,17 +409,17 @@ struct FreeTrialLimitReachedView: View {
 //                                .cornerRadius(10)
 //                                .padding()
                         
-                        Button(action: {bypassPaywallClicked = true}, label: {
-                                Text("BYPASS PAYWALL")
-                                    .foregroundColor(.purple)
-                                    .bold()
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .padding()
-                            
-                        })
+//                        Button(action: {bypassPaywallClicked = true}, label: {
+//                                Text("BYPASS PAYWALL")
+//                                    .foregroundColor(.purple)
+//                                    .bold()
+//                                    .padding()
+//                                    .frame(maxWidth: .infinity)
+//                                    .background(Color.white)
+//                                    .cornerRadius(10)
+//                                    .padding()
+//
+//                        })
 //                        }
                         Button(action: {currentUserWrapper.enterPromoCode()}, label: {
                                 Text("Enter Promo Code")
@@ -2659,7 +2659,7 @@ struct LogPhrasePopUp: View {
                     .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 5))
             }
 
-            Text("What is a Log Phrase?")
+            Text(showOrExplainView == 0 ? "What is a Log Phrase?" : "Log Phrase Example")
                 .foregroundColor(.white)
                 .font(.title3)
                 .bold()
@@ -2670,7 +2670,7 @@ struct LogPhrasePopUp: View {
             
             
             
-            if showOrExplainView == 0 {
+            if showOrExplainView == 1 {
                 
                 VStack(spacing: 0) {
                     Image("croppedNewLogMessage")
@@ -2716,18 +2716,20 @@ struct LogPhrasePopUp: View {
             }
             Spacer()
             HStack {
-                Button(action: {showOrExplainView = 0}, label: {
-                    Text("Show Me")
-                        .font(.system(size: 16 + (showOrExplainView == 0 ? 4 : 0), weight: showOrExplainView == 0 ? .bold : .regular, design: .default))
-                        .foregroundColor(showOrExplainView == 0 ? .white : Color(UIColor.systemGray5))
-                        .underline(showOrExplainView == 0, color: .white)
-                })
-                .padding(.trailing, 5)
+                
                 Button(action: {showOrExplainView = 1}, label: {
-                    Text("Explain to Me")
+                    Text("Show Me")
                         .font(.system(size: 16 + (showOrExplainView == 1 ? 4 : 0), weight: showOrExplainView == 1 ? .bold : .regular, design: .default))
                         .foregroundColor(showOrExplainView == 1 ? .white : Color(UIColor.systemGray5))
                         .underline(showOrExplainView == 1, color: .white)
+                    
+                    Button(action: {showOrExplainView = 0}, label: {
+                        Text("Explain To Me")
+                            .font(.system(size: 16 + (showOrExplainView == 0 ? 4 : 0), weight: showOrExplainView == 0 ? .bold : .regular, design: .default))
+                            .foregroundColor(showOrExplainView == 0 ? .white : Color(UIColor.systemGray5))
+                            .underline(showOrExplainView == 0, color: .white)
+                    })
+                    .padding(.trailing, 5)
                     
                 })
             }.padding(.bottom)
@@ -2737,17 +2739,17 @@ struct LogPhrasePopUp: View {
         .gesture(DragGesture(minimumDistance: 1, coordinateSpace: .global)
             .onChanged({ value in
                 print("gesture value.translation.width: ", value.translation.width )
-                if showOrExplainView == 0 {
+                if showOrExplainView == 1 {
                     if value.translation.width > -70 && value.translation.width < 0 {
                         slideOffset = value.translation.width
                     } else if value.translation.width < -70 {
-                        showOrExplainView = 1
+                        showOrExplainView = 0
                     }
                 } else  {
                     if value.translation.width < 70 && value.translation.width > 0 {
                         slideOffset = value.translation.width
                     } else if value.translation.width > 70 {
-                        showOrExplainView = 0
+                        showOrExplainView = 1
                     }
                 }
             })

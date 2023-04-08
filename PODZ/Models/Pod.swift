@@ -14,6 +14,7 @@ class Pod: Identifiable, Codable, Equatable {
         static func == (lhs: Pod, rhs: Pod) -> Bool {
             return lhs.podID == rhs.podID
         }
+
     
     let podID: String
     let podName: String
@@ -37,6 +38,7 @@ class Pod: Identifiable, Codable, Equatable {
     var memberAliasesAndHabit : [String : String]
     var memberAliasesAndSomethingNew : [String : Bool] //CHANGES REGULARLY
     var dateCreated: Timestamp?
+    
 
     
     init(id:String, n: String, memberScoreDict: [String: Int], memberNameDict: [String: String], memberScheduleDict: [String: [Bool]], memberPhraseDict: [String:String], memberTimeDict: [String: Int], communityOrFriend: String, habit: String? , memberAliasesAndIDs: [String : String], memberColorDict: [String: Int], memberAliasHasLogged: [String: Bool], memberAliasLogPhrase: [String: String], dayNumber: Int, dayLimit: Int, memberAliasesAndSecondsFromGMT: [String: Int], memberAliasesAndHabitDays: [String: Int], memberAliasesAndHabit : [String : String], memberAliasesAndSomethingNew : [String : Bool]) {
